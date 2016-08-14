@@ -1,0 +1,186 @@
+<html>
+<head>
+<title>Restaurant menu</title>
+<style type="text/css">
+	h1
+	{
+		color:orange;
+		font-family:arial;
+		font-style:italic;
+		
+	}
+	th	
+	{
+		font-weight:bold;
+		font-size:16pt;
+		color:brown;
+		font-family:arial,sans-serif;
+		background:lightgreen;
+	}
+	td
+	{
+		font-family:tahoma,helvetica,sans-serif;
+		font-size:13pt;
+		font-weight:bold;
+		color:purple;
+		text-align:center;
+	}
+	div 
+	{ 
+		background-color:pink;
+		text-align: center;
+		width: 40%;
+		position: relative;
+		left: 30%;
+		border-width: 6px 
+		
+	}
+	.inset 
+	{
+		border-style:inset
+	}
+	.food
+	{
+		font-face:'Comic Sans MS';
+		font-size:larger;
+		color:white;
+		background-color:#008CBA;
+	}
+	
+</style>
+<script type="text/javascript">
+<!--
+	var p1=0,p2=0,p3=0,p4=0,p5=0;
+	function calc(x,i)
+	{
+		if(i === "roti")
+		{
+			p1=x*25;
+			document.getElementById("cost1").innerHTML = p1;
+		}
+		else if(i === "dosa")
+		{
+			p2=x*45;
+			document.getElementById("cost2").innerHTML = p2;
+		}
+		else if(i === "pulav")
+		{
+			p3=x*80;
+			document.getElementById("cost3").innerHTML = p3;
+		}
+		else if(i === "poori")
+		{
+			p4=x*60;
+			document.getElementById("cost4").innerHTML = p4;
+		}
+		else if(i === "idly")
+		{
+			p5=x*30;
+			document.getElementById("cost5").innerHTML = p5;
+		}
+		
+	}
+	function findtotal() 
+	{
+		var q1=document.menu.f1.value;
+		var q2=document.menu.f2.value;
+		var q3=document.menu.f3.value;
+		var q4=document.menu.f4.value;
+		var q5=document.menu.f5.value;
+		var tot = p1 + p2 + p3 + p4 + p5;
+		if(tot === 0)
+		{
+			alert("You have not selected any items");
+			return false;
+		}
+		else
+		{
+			var n=1;
+			document.writeln("<style>");
+			document.writeln("td{font-family:lucida console;font-size:13pt;font-weight:bold;color:purple;text-align:center;}");
+			document.writeln("th{background:lightblue;font-family:arial;font-size:16pt;font-weight:bold;font-style:italic;color:brown;text-align:center;}");
+			document.writeln("</style>");
+			document.writeln("<body background=bg.jpg>");
+			document.writeln("<br><br><center><font face=arial  size=20pt color=DarkSlateGray>BILL SUMMARY</font></center><br>");
+			document.writeln("<TABLE style=border-color:FF0066 width=500 height=300 border=6 bgcolor=pink  align=center >");
+			document.writeln("<thead><tr><th>Item no.</th><th>Item</th><th>Quantity</th><th>Price</th></tr></thead>");
+			
+			if(p1!=0)
+			{
+				document.writeln("<tr><td>"+n+"</td><td>Roti</td><td>"+q1+"</td><td>"+p1+"</td></tr>");
+				n++;
+			}
+			if(p2!=0)
+			{
+				document.writeln("<tr><td>"+n+"</td><td>Dosa</td><td>"+q2+"</td><td>"+p2+"</td></tr>");
+				n++;
+			}
+			if(p3!=0)
+			{
+				document.writeln("<tr><td>"+n+"</td><td>Pulav</td><td>"+q3+"</td><td>"+p3+"</td></tr>");
+				n++;
+			}
+			if(p4!=0)
+			{
+				document.writeln("<tr><td>"+n+"</td><td>Poori</td><td>"+q4+"</td><td>"+p4+"</td></tr>");
+				n++;
+			}
+			if(p5!=0)
+			{
+				document.writeln("<tr><td>"+n+"</td><td>Idly</td><td>"+q5+"</td><td>"+p5+"</td></tr>");
+				n++;
+			}
+			document.writeln("<tfoot><tr><th colspan=3 >Total Price</th><th>"+tot+"</th></tr></tfoot></table>");
+			return false;
+			
+		}
+	}
+-->
+</script>
+</head>
+<body background="glass.jpg">
+<center><h1>Restaurant menu</h1></center>
+<br>
+<div class="inset" style="font-size:15pt;font-color:blue;font-family:lucida console;" >Enter quantity for desired food items</div><br>
+<form name="menu" align="center" onsubmit="return(findtotal());" >
+<table border=8 style="border-color:CC0066;" width=400 height=400 bgcolor="lavender" align="center" >
+<thead>
+	<tr>
+		<th>Item</th>
+		<th>Quantity</th>
+		<th>Price</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Roti</td>
+		<td><input type="number" class="food" id="roti" name="f1" min=0 max=10 value=0 onchange="calc(this.value,this.id);"/></td>
+		<td name="c1" id="cost1"> </td>
+	</tr>
+	<tr>
+		<td>Dosa</td>
+		<td><input type="number" class="food" id="dosa" name="f2" min=0 max=10 value=0 onchange="calc(this.value,this.id);"/></td>
+		<td name="c2" id="cost2"> </td>
+	</tr>
+	<tr>
+		<td>Pulav</td>
+		<td><input type="number" class="food" id="pulav" name="f3" min=0 max=10 value=0 onchange="calc(this.value,this.id);"/></td>
+		<td name="c3" id="cost3"> </td>
+	</tr>
+	<tr>
+		<td>Poori</td>
+		<td><input type="number" class="food" id="poori" name="f4" min=0 max=10 value=0 onchange="calc(this.value,this.id);"/></td>
+		<td name="c4" id="cost4"> </td>
+	</tr>
+	<tr>
+		<td>Idly</td>
+		<td><input type="number" class="food" id="idly" name="f5" min=0 max=10 value=0 onchange="calc(this.value,this.id);"/></td>
+		<td name="c5" id="cost5"> </td>
+	</tr>
+</tbody>
+</table>
+<br>
+<center><input type="submit" name="SUBMIT" style="font-face:'Comic Sans MS';font-size:larger;color:WHITE;background-color:#DC143C"/></center>	
+</form>
+</body>
+</html>
